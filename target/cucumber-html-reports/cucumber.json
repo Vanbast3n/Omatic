@@ -1,0 +1,41 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "Perform login process successfully",
+        "description": "",
+        "id": "demo1;perform-login-process-successfully",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 4,
+            "name": "Click on login button in the home page",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 5,
+            "name": "Once",
+            "match": {},
+            "keyword": "When "
+          }
+        ]
+      }
+    ],
+    "name": "Demo1",
+    "description": "",
+    "id": "demo1",
+    "keyword": "Feature",
+    "uri": "src/test/resources/features/Login.feature",
+    "tags": []
+  }
+]
