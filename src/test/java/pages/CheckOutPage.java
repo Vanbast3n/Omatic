@@ -25,6 +25,5 @@ public class CheckOutPage {
         perform.waitForAnyCondition(driver,bookNowButton,timeout,cte.PRESENCE_OF_ELEMENT_LOCATED);
         perform.waitForAnyCondition(driver,bookNowButton,timeout,cte.ELEMENT_TO_BE_CLICKABLE);
         perform.moveOverElement(driver,roomTypeHeader,timeout);
-        Thread.sleep(10000);
     }
 }

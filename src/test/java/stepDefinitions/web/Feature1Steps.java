@@ -12,7 +12,7 @@ import runner.Hooks;
 
 
 public class Feature1Steps extends TestBase {
-    private ChromeDriver driver = Hooks.getDriver();
+    private WebDriver driver = Hooks.getDriver();
 
     @Given("Estoy en la pagina principal y quito popup covid y acepto cookies")
     public void estoy_en_la_pagina_principal_y_quito_popup_covid_y_acepto_cookies() throws Exception {

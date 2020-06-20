@@ -3,26 +3,31 @@ package runner;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import driverManager.DriverManager;
+import driverManager.DriverManagerFactory;
+import driverManager.DriverType;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Hooks {
 
-    private static ChromeDriver driver;
+    private static WebDriver driver;
+    private DriverManager driverManager;
 
     @Before
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver","./src/test/resources/driver/chrome/chromedriver.exe");
-        driver = new ChromeDriver();
+        driverManager = DriverManagerFactory.getManager(DriverType.CHROME);
+        driver = driverManager.getDriver();
         driver.get("https://www.hesperia.com/es/es.html");
         driver.manage().window().maximize();
     }
 
     @After
     public void tearDown(){
-        driver.quit();
+        driverManager.quitDriver();
     }
 
-    public static ChromeDriver getDriver(){
+    public static WebDriver getDriver(){
         return driver;
     }
 

@@ -52,6 +52,20 @@ public class WebDriverActions extends Constants {
         driver.findElement(locator).click();
     }
 
+    public void moveOverElement(WebDriver driver, By locator,Integer timeout) throws Exception {
+        Actions actions = new Actions(driver);
+        waitForAnyCondition(driver, locator, timeout, ELEMENT_TO_BE_CLICKABLE);
+        actions.moveToElement(driver.findElement(locator)).build().perform();
+    }
+
+    public void switchToNextTab(WebDriver driver) {
+        String oldTab = driver.getWindowHandle();
+        ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
+        newTab.remove(oldTab);
+        driver.switchTo().window(newTab.get(0));
+
+    }
+
     public List<String> getWebElementListStr(WebDriver driver, By locator) {
         List<String> hotelList = new ArrayList<>();
         for (WebElement element : driver.findElements(locator)) {
@@ -77,19 +91,9 @@ public class WebDriverActions extends Constants {
         return dates.asMaps(String.class,String.class);
     }
 
-    public void switchToNextTab(WebDriver driver) {
-            String oldTab = driver.getWindowHandle();
-            ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
-            newTab.remove(oldTab);
-            driver.switchTo().window(newTab.get(0));
 
-    }
 
-    public void moveOverElement(WebDriver driver, By locator,Integer timeout) throws Exception {
-        Actions actions = new Actions(driver);
-        waitForAnyCondition(driver, locator, timeout, ELEMENT_TO_BE_CLICKABLE);
-        actions.moveToElement(driver.findElement(locator)).build().perform();
-    }
+
 
 
 }
