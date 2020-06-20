@@ -1,0 +1,139 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 9993976600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.setUp()"
+            }
+          }
+        ],
+        "line": 15,
+        "name": "Scenario1",
+        "description": "",
+        "id": "demo1;scenario1;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 1586147300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 434344200,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "Estoy en la pagina principal y quito popup covid y acepto cookies",
+            "match": {
+              "location": "Feature1Steps.estoy_en_la_pagina_principal_y_quito_popup_covid_y_acepto_cookies()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 826569300,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "Despliego el dropdown de hoteles destino y selecciono el que me interesa \"Hesperia Barcelona Ramblas\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Hesperia Barcelona Ramblas\"",
+                  "offset": 73
+                }
+              ],
+              "location": "Feature1Steps.despliego_el_dropdown_de_hoteles_destino_y_selecciono_el_que_me_interesa(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2252237900,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "Despliego el calendario y selecciono las fechas",
+            "match": {
+              "location": "Feature1Steps.despliego_el_calendario_y_selecciono_las_fechas(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "monthsAhead",
+                  "checkIn",
+                  "checkOut"
+                ]
+              },
+              {
+                "cells": [
+                  "12",
+                  "14",
+                  "17"
+                ]
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 224105000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "Pulso el boton para reservar",
+            "match": {
+              "location": "Feature1Steps.pulso_el_boton_para_reservar()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4889654300,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "Selecciono tipo de habitacion",
+            "match": {
+              "location": "Feature1Steps.selecciono_tipo_de_habitacion()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 12751317900,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "Coloco el raton sobre la cabecera para desplegar informacion",
+            "match": {
+              "location": "Feature1Steps.coloco_el_raton_sobre_la_cabecera_para_desplegar_informacion()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Demo1",
+    "description": "",
+    "id": "demo1",
+    "keyword": "Feature",
+    "uri": "src/test/resources/features/web/Feature1.feature",
+    "tags": []
+  }
+]
