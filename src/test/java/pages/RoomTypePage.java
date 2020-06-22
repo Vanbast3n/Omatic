@@ -24,7 +24,7 @@ public class RoomTypePage {
     //Botones
     public final By firstBookButton = By.xpath("//div[@id='0multirate']/div[@class='CardList-wrapper']/div[@class='CardList-summary CardList-summary-multirate']/div[@class='CardList-actions ng-scope']/button[@class='btn btn-primary CardList-action btn-primary-cta book-button-background ng-binding ng-scope' and @ng-if='!enableUpfrontEnhancementsIsActive']");
 
-    public void clickOnButtonToBookTheFirstType(WebDriver driver) throws Exception {
-        perform.clickOnElement(driver,firstBookButton,loadedPageTimeOut);
+    public void clickOnButtonToBookTheFirstType() throws Exception {
+        perform.clickOnElement(firstBookButton,loadedPageTimeOut);
     }
 }

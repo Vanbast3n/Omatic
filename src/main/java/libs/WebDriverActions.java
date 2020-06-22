@@ -19,7 +19,9 @@ import java.util.Map;
 
 public class WebDriverActions extends Constants {
 
-    public void waitForAnyCondition(WebDriver driver, By locator, Integer timeout, String condition) throws Exception {
+    public WebDriver driver;
+
+    public void waitForAnyCondition(By locator, Integer timeout, String condition) throws Exception {
         WebDriverWait webDriverWait = new WebDriverWait(driver, timeout);
         switch (condition) {
             case PRESENCE_OF_ELEMENT_LOCATED:
@@ -47,18 +49,18 @@ public class WebDriverActions extends Constants {
     }
 
 
-    public void clickOnElement(WebDriver driver, By locator, Integer timeout) throws Exception {
-        waitForAnyCondition(driver, locator, timeout, ELEMENT_TO_BE_CLICKABLE);
+    public void clickOnElement(By locator, Integer timeout) throws Exception {
+        waitForAnyCondition(locator, timeout, ELEMENT_TO_BE_CLICKABLE);
         driver.findElement(locator).click();
     }
 
-    public void moveOverElement(WebDriver driver, By locator,Integer timeout) throws Exception {
+    public void moveOverElement(By locator,Integer timeout) throws Exception {
         Actions actions = new Actions(driver);
-        waitForAnyCondition(driver, locator, timeout, ELEMENT_TO_BE_CLICKABLE);
+        waitForAnyCondition(locator, timeout, ELEMENT_TO_BE_CLICKABLE);
         actions.moveToElement(driver.findElement(locator)).build().perform();
     }
 
-    public void switchToNextTab(WebDriver driver) {
+    public void switchToNextTab() {
         String oldTab = driver.getWindowHandle();
         ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
         newTab.remove(oldTab);
@@ -66,7 +68,7 @@ public class WebDriverActions extends Constants {
 
     }
 
-    public List<String> getWebElementListStr(WebDriver driver, By locator) {
+    public List<String> getWebElementListStr(By locator) {
         List<String> hotelList = new ArrayList<>();
         for (WebElement element : driver.findElements(locator)) {
             hotelList.add(element.getText());
@@ -74,11 +76,11 @@ public class WebDriverActions extends Constants {
         return hotelList;
     }
 
-    public Boolean isDisplayed(WebDriver driver, By locator){
+    public Boolean isDisplayed(By locator){
         return driver.findElement(locator).isDisplayed();
     }
 
-    public List<WebElement> getWebElementList(WebDriver driver, By locator) {
+    public List<WebElement> getWebElementList(By locator) {
         return new ArrayList<>(driver.findElements(locator));
     }
 

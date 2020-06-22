@@ -69,6 +69,11 @@
       <artifactId>log4j</artifactId>
       <version>1.2.17</version>
     </dependency>
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>4.0.0</version>
+    </dependency>
 
   </dependencies>
 
@@ -125,6 +130,21 @@
                   <target>8</target>
               </configuration>
           </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0-M4</version>
+          <configuration>
+            <suiteXmlFiles>
+              <file>src/test/testng.xml</file>
+            </suiteXmlFiles>
+            <systemPropertyVariables>
+              <headlessChrome>false</headlessChrome>
+              <headlessFirefox>false</headlessFirefox>
+              <browser>chrome</browser>
+            </systemPropertyVariables>
+          </configuration>
+        </plugin>
       </plugins>
   </build>
 </project>

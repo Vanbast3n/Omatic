@@ -21,9 +21,9 @@ public class CheckOutPage {
     public final By roomTypeHeader = By.xpath("//div[@class='accommodations-text-tab-desk ng-binding']");
 
 
-    public void moveMouseOverHeader(WebDriver driver) throws Exception {
-        perform.waitForAnyCondition(driver,bookNowButton,timeout,cte.PRESENCE_OF_ELEMENT_LOCATED);
-        perform.waitForAnyCondition(driver,bookNowButton,timeout,cte.ELEMENT_TO_BE_CLICKABLE);
-        perform.moveOverElement(driver,roomTypeHeader,timeout);
+    public void moveMouseOverHeader() throws Exception {
+        perform.waitForAnyCondition(bookNowButton,timeout,cte.PRESENCE_OF_ELEMENT_LOCATED);
+        perform.waitForAnyCondition(bookNowButton,timeout,cte.ELEMENT_TO_BE_CLICKABLE);
+        perform.moveOverElement(roomTypeHeader,timeout);
     }
 }

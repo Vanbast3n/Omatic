@@ -1,26 +1,64 @@
 package driverManager;
 
+import enums.EnumWebDrivers;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.WebDriver;
 
-public abstract class DriverManager {
+public class DriverManager {
 
-    protected WebDriver driver;
+    private static DriverManager driverManager;
+    private ThreadLocal<AndroidDriver<AndroidElement>> androidDriverThread = new ThreadLocal<>();
+    private ThreadLocal<WebDriver> webDriverThread = new ThreadLocal();
 
-    protected abstract void createDriver();
+    private DriverManager() {
+    }
 
-    public void quitDriver(){
-        if (driver != null){
-            driver.quit();
-            driver = null;
+    public synchronized static DriverManager getInstance() {
+        if (driverManager == null) {
+            driverManager = new DriverManager();
+        }
+        return driverManager;
+    }
+
+    public void createWebDriver(EnumWebDrivers webDrivers) throws Exception {
+        switch (webDrivers) {
+            case CHROME:
+
+                webDriverThread.set(ConfigWebDriverManager.createChromeDriver());
+
+                break;
+            case FIREFOX:
+
+                webDriverThread.set(ConfigWebDriverManager.createFirefoxDriver());
+
+                break;
+            case INTERNETEXPLORER:
+                webDriverThread.set(ConfigWebDriverManager.createIEDriver());
+                break;
         }
     }
 
-    public WebDriver getDriver(){
-        if (driver == null){
-            createDriver();
+    public void quitAndroidDriver() {
+        if (androidDriverThread.get() != null) {
+            androidDriverThread.get().quit();
+            androidDriverThread.remove();
         }
-        return driver;
     }
+
+    public void quitWebDriver() {
+        if (webDriverThread.get() != null) {
+            webDriverThread.get().quit();
+            webDriverThread.remove();
+
+        }
+    }
+
+    public WebDriver getWebDriver() {
+        return webDriverThread.get();
+    }
+
+
 
 
 }
